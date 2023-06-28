@@ -2,10 +2,9 @@ package dev.pgjbz.result;
 
 import java.util.function.Function;
 
-public sealed interface Result<O, E> permits Err<O, E>, Ok<O, E> {
+public interface Result<O, E> {
 
     O unwrap();
-    E err();
 
     boolean isErr();
 

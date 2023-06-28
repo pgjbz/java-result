@@ -2,8 +2,6 @@ package dev.pgjbz.result;
 
 import static java.util.Objects.requireNonNull;
 
-import dev.pgjbz.result.exception.ValueNotCompatibleException;
-
 public record Ok<O, E>(O o) implements Result<O, E> {
 
     public Ok {
@@ -23,11 +21,6 @@ public record Ok<O, E>(O o) implements Result<O, E> {
     @Override
     public boolean isOk() {
         return true;
-    }
-
-    @Override
-    public E err() {
-        throw new ValueNotCompatibleException("not error value");
     }
 
 }

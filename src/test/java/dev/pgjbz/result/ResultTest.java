@@ -29,12 +29,6 @@ public class ResultTest {
     }
 
     @Test
-    void shouldBeOkAndThrowsError() {
-        final var err = Result.ok("ok");
-        assertThrows(ValueNotCompatibleException.class, () -> err.err());
-    }
-
-    @Test
     void shouldMapErrErr() {
         final Result<String, String> err = Result.err("1");
         final var mapped = err
@@ -56,6 +50,7 @@ public class ResultTest {
     void match() {
         final Result<String, String> err = Result.err("err");
         if(err instanceof Err<String, String> e) {
+           assertEquals("err", e.err());
         }
     }
 }
