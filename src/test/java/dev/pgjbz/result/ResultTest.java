@@ -3,6 +3,7 @@ package dev.pgjbz.result;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -49,8 +50,10 @@ public class ResultTest {
     @Test
     void match() {
         final Result<String, String> err = Result.err("err");
-        if(err instanceof Err<String, String> e) {
-           assertEquals("err", e.err());
-        }
+        switch(err) {
+            case Err<String, String>(var e) -> assertEquals("err", e);
+            case Ok<String, String>(var ok) -> assertTrue(false);
+            default -> assertTrue(false);
+        }        
     }
 }
