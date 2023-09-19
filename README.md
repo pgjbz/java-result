@@ -36,3 +36,6 @@ Result have, method like
 
 
 In test folder have more examples
+
+
+PS. this is a test with Java 21
