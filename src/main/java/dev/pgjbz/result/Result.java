@@ -2,7 +2,7 @@ package dev.pgjbz.result;
 
 import java.util.function.Function;
 
-public interface Result<O, E> {
+public sealed interface Result<O, E> permits Ok, Err {
 
     O unwrap();
 
