@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import dev.pgjbz.result.exception.ValueNotCompatibleException;
 
-public  record Err<O, E>(E err) implements Result<O, E> {
+public record Err<O, E>(E err) implements Result<O, E> {
 
     public Err{
         requireNonNull(err, "null values are not supported");
