@@ -28,6 +28,18 @@ public Result<String, String> errResult() {
 }
 ```
 
+Test example
+```java
+void matchWithWhen() {
+    record Person(int age){}
+    final Result<Person, String> ok = Result.ok(new Person(10));
+    switch (ok) {
+        case Ok(var p) when p.age() > 18 -> assertTrue(false);
+        case Ok(var p) -> assertTrue(true);
+        default -> assertTrue(false);
+    }
+}
+```
 Result have, method like
 - map, method that map Ok result, receive a Function and result another `Result<O, E>`.
 - mapErr, method that map Err result, receive a Function and result another `Result<O, E>`.

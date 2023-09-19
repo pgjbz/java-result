@@ -56,4 +56,15 @@ public class ResultTest {
             default -> assertTrue(false);
         }        
     }
+
+    @Test
+    void matchWithWhen() {
+        record Person(int age){}
+        final Result<Person, String> ok = Result.ok(new Person(10));
+        switch (ok) {
+            case Ok(var p) when p.age() > 18 -> assertTrue(false);
+            case Ok(var p) -> assertTrue(true);
+            default -> assertTrue(false);
+        }
+    }
 }
