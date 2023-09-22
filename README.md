@@ -49,5 +49,12 @@ Result have, method like
 
 In test folder have more examples
 
-
+Add to project:
+```xml
+<dependency>
+  <groupId>dev.pgjbz</groupId>
+  <artifactId>java-result</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
 PS. this is a test with Java 21
