@@ -1,10 +1,10 @@
 # Java Result
 
-Java Result is a library that implements Result in Java. Results is alternative to Exceptions, with no hiden workflows.
+Java Result is a library that implements Result in Java. Results is alternative to Exceptions, with no hidden flows. Only works with Java 21+
 
 ## Usage
 
-Result is a Generic Interface that have two implementations, Ok and Err, both have same Generic params.
+Result is a Generic Interface that have two implementations, Ok and Err, both have same Generic parameters.
 
 ```java
 public sealed interface Result<O, E> permits Ok, Err {}
@@ -46,9 +46,6 @@ Result have, method like
 - unwrap get Ok value, throws a exception if the value is a error.
 - okOrDefault get Ok Value, if is a Err return a default value.
 
-
-In test folder have more examples
-
 Add to project:
 ```xml
 <dependency>
@@ -57,4 +54,3 @@ Add to project:
   <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
-PS. this is a test with Java 21
