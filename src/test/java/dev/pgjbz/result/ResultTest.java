@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import dev.pgjbz.result.exception.ValueNotCompatibleException;
+import dev.pgjbz.result.exception.NoOkException;
 
 public class ResultTest {
 
@@ -25,8 +25,8 @@ public class ResultTest {
     @Test
     void shouldBeErrorAndThrowsError() {
         final var err = Result.err("error");
-        final ValueNotCompatibleException ex = assertThrows(ValueNotCompatibleException.class, () -> err.unwrap());
-        assertEquals("not ok value", ex.getMessage());
+        final NoOkException ex = assertThrows(NoOkException.class, () -> err.unwrap());
+        assertEquals("value that unwrap is an error", ex.getMessage());
     }
 
     @Test
@@ -68,4 +68,17 @@ public class ResultTest {
             default -> assertTrue(false);
         }
     }
+
+    @Test
+    void shouldConvertToOptionalOIfIsOk() {
+        final Result<String, String> ok = Result.ok("is ok value");
+        assertTrue(ok.optional().isPresent());
+    }
+
+        @Test
+    void shouldConvertToOptionalEmptyIfErr() {
+        final Result<String, String> ok = Result.err("is err value");
+        assertTrue(ok.optional().isEmpty());
+    }
+
 }
