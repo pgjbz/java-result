@@ -45,12 +45,12 @@ Result have, method like
 - mapErr, method that map Err result, receive a Function and result another `Result<O, E>`.
 - unwrap get Ok value, throws a exception if the value is a error.
 - okOrDefault get Ok Value, if is a Err return a default value.
-
+- optional return Optional with value if is Ok, and Optional empty if Err
 Add to project:
 ```xml
 <dependency>
   <groupId>dev.pgjbz</groupId>
   <artifactId>java-result</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2</version>
 </dependency>
 ```

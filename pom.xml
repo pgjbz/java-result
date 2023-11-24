@@ -5,7 +5,7 @@
 
     <groupId>dev.pgjbz</groupId>
     <artifactId>java-result</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <properties>
