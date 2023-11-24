@@ -2,7 +2,7 @@ package dev.pgjbz.result;
 
 import static java.util.Objects.requireNonNull;
 
-import dev.pgjbz.result.exception.ValueNotCompatibleException;
+import dev.pgjbz.result.exception.NoOkException;
 
 public record Err<O, E>(E err) implements Result<O, E> {
 
@@ -12,7 +12,7 @@ public record Err<O, E>(E err) implements Result<O, E> {
 
     @Override
     public O unwrap() {
-        throw new ValueNotCompatibleException("not ok value");
+        throw new NoOkException();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package dev.pgjbz.result;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 public sealed interface Result<O, E> permits Ok, Err {
@@ -18,6 +19,10 @@ public sealed interface Result<O, E> permits Ok, Err {
         return new Ok<>(ok);
     }
 
+    default Optional<O> optional() {
+        return isOk() ? Optional.of(unwrap()) : Optional.empty();
+    }
+
     default <T> Result<O, T> mapErr(Function<E, T> map) {
         if(this instanceof Err<O, E> e) {
             return Result.err(map.apply(e.err()));
@@ -33,9 +38,7 @@ public sealed interface Result<O, E> permits Ok, Err {
     }
 
     default O okOrDefault(O def) {
-        if (isOk())
-            return unwrap();
-        return def;
+        return isOk()? unwrap() :  def;
     }
 
 }
