@@ -2,7 +2,8 @@ package dev.pgjbz.result;
 
 import static java.util.Objects.requireNonNull;
 
-import dev.pgjbz.result.exception.NoOkException;
+import dev.pgjbz.result.error.NoOkError;
+
 
 public record Err<O, E>(E err) implements Result<O, E> {
 
@@ -12,7 +13,7 @@ public record Err<O, E>(E err) implements Result<O, E> {
 
     @Override
     public O unwrap() {
-        throw new NoOkException();
+        throw new NoOkError();
     }
 
     @Override

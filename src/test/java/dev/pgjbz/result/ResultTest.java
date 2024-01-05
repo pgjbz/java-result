@@ -4,9 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
-import dev.pgjbz.result.exception.NoOkException;
+import dev.pgjbz.result.error.NoOkError;
 
 public class ResultTest {
 
@@ -25,7 +26,7 @@ public class ResultTest {
     @Test
     void shouldBeErrorAndThrowsError() {
         final var err = Result.err("error");
-        final NoOkException ex = assertThrows(NoOkException.class, () -> err.unwrap());
+        final NoOkError ex = assertThrows(NoOkError.class, () -> err.unwrap());
         assertEquals("value that unwrap is an error", ex.getMessage());
     }
 
