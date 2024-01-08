@@ -25,7 +25,7 @@ public class ResultTest {
     void shouldBeErrorAndThrowsError() {
         final var err = Result.err("error");
         final NoOkError ex = assertThrows(NoOkError.class, () -> err.unwrap());
-        assertEquals("value that unwrap is an error", ex.getMessage());
+        assertEquals("the value that try to unwrap is an error", ex.getMessage());
     }
 
     @Test
