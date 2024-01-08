@@ -4,28 +4,33 @@ import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * @author Paulo G. J. Bezerra <contact@pgbz.dev>
+ * Result interface that implements default method
+ * @author Paulo G. J. Bezerra - <a href="mailto:contact@pgjbz.dev">contact@pgjbz.dev</a>
+ * @param <O> Ok value type
+ * @param <E> Err value type
  */
 public sealed interface Result<O, E> permits Ok, Err {
 
     /**
-     * 
+     * Unwrap a ok Value or Throws an Error if not is Ok value
      * @return return Ok value otherwise throws an error if not is Ok
      */
     O unwrap();
 
     /**
-     * 
+     * Verify if is an Error
      * @return true if is an error
      */
     boolean isErr();
 
     /** 
+     * verify if is an Ok
      * @return true if an ok
      * */ 
     boolean isOk();
 
     /**
+     * Create new Error value
      * @param <O> Ok value type
      * @param <E> Err value type
      * @param error Create a new Err value with given value
@@ -36,7 +41,9 @@ public sealed interface Result<O, E> permits Ok, Err {
     }
 
     /**
-     * 
+     * Create new Ok Value
+     * @param <O> Ok value type
+     * @param <E> Err value type
      * @param ok Create a new Ok value with given value
      * @return Ok instance with ok value
      */
@@ -47,7 +54,7 @@ public sealed interface Result<O, E> permits Ok, Err {
     /**
      * Convert an Result value to Optional, empty optional means value is an error
      * present value is a Ok value
-     * @return
+     * @return Optional with Ok value
      */
     default Optional<O> optional() {
         return isOk() ? Optional.of(unwrap()) : Optional.empty();

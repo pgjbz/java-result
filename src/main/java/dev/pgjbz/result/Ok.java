@@ -3,7 +3,11 @@ package dev.pgjbz.result;
 import static java.util.Objects.requireNonNull;
 
 /**
- * @author Paulo G. J. Bezerra <contact@pgjbz.dev>
+ * Ok class
+ * @param <O> Ok value type
+ * @param <E> Err value typ
+ * @param o Ok value
+ * @author Paulo G. J. Bezerra - <a href="mailto:contact@pgjbz.dev">contact@pgjbz.dev</a>
  */
 public record Ok<O, E>(O o) implements Result<O, E> {
 

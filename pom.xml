@@ -6,7 +6,7 @@
 
     <groupId>dev.pgjbz</groupId>
     <artifactId>java-result</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Result is a replacement to a Exceptions, work with values without hiden control flow</description>
